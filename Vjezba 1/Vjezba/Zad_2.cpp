@@ -1,15 +1,14 @@
 /* 
-* 
 2. Učitajte godinu rođenja(std::cin >> ), a zatim ime i prezime u jedan std::string
 koristeći std::getline.Ispišite:
 ◦ inicijale(npr.Ana Horvat → A.H.),
 ◦ broj znakova imena i prezimena bez razmaka(koristite range - based for),
 ◦ koliko godina osoba navršava ove godine.
-
 */
 
 #include <iostream>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -25,11 +24,10 @@ int main() {
 	getline(cin, ime_prezime);
 
 	cout << "Inicijali: ";
-	cout << ime_prezime[0] << ".";
+	cout << (ime_prezime[0]) << ".";
 	for (int i = 0; i < ime_prezime.length(); i++) {
 		if (ime_prezime[i] == ' ') {
-			cout << ime_prezime[i + 1] << ".";
-
+			cout << (ime_prezime[i + 1]) << ".";
 		}
 	}
 	cout << endl;
@@ -41,8 +39,8 @@ int main() {
 		}
 	}
 
-	cout << "Broj znakova imena i prezimena bez razmaka: " << brojZnakova << endl;
-	cout << "Godine ove godine: " << 2026 - godina_rodenja << endl;
+	cout << "Broj znakova u imenu i prezimenu: " << brojZnakova << endl;
+	cout << "Godine: " << 2026 - godina_rodenja << endl;
 
 	return 0;
 }
