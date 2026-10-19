@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#define MAX(a,b) ((a > b) ? (a) : (b));
+#define MAX(a,b) ((a > b) ? (a) : (b))
 
 using namespace std;
 
@@ -29,9 +29,6 @@ int main() {
 	cout << "i nakon MAX:" << i << endl << endl;
 	cout << "my_max:" << my_max(++i, 2) << endl;
 	cout << "i nakon my_max:" << i << endl << endl;
-
-	int nesto = my_maxx(2, 3);
-
 	cout << "my_max za int:" << my_maxx(2, 3) << endl;
 	cout << "my_max za double:" << my_maxx(1.2, 2.3) << endl;
 	cout << "my_max za char:" << my_maxx('a', 'b') << endl;
