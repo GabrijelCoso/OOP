@@ -1,4 +1,4 @@
-﻿/*
+/*
 1. Napišite funkcije
 ◦ void input_vector(std::vector<int>& v) koja unosi cijele brojeve dok se ne unese
 0 (nula se ne sprema),
@@ -12,41 +12,63 @@ shrink_to_fit() i ispišite kapacitet.
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
+
 void input_vector(vector<int>& v) {
-	int broj = 1;
-	while (broj != 0) {
+	int broj;
+	while (true) {
 		cin >> broj;
+		if (broj == 0) break;
 		v.push_back(broj);
-		cout << endl;
-		cout <<"Velicina:"<<v.size()<<endl;
-		cout <<"Kapacitet:"<< v.capacity()<<endl;
 	}
-	v.pop_back();
 }
 
 void print_vector(const vector<int>& v) {
 	for (const auto& x : v) { cout << x << " "; }
 	cout << endl;
-	for (auto it = v.rbegin(); it != v.rend(); ++it) {
-		cout << *it << " ";
-	}
-}
-
-
-
-void shrink_to_fit() {
-
 }
 
 int main() {
-	vector <int> v1;
-	vector <int> v2;
-	input_vector(v1);
-	print_vector(v1);
-	
-	
+    vector<int> v1;
 
-	return 0;
+    cout << "Unosi brojeve (0 za kraj): ";
+    input_vector(v1);
+
+    cout << "Vektor v1: ";
+    print_vector(v1);
+
+    cout << "Obrnuti redoslijed v1: ";
+    for (auto it = v1.rbegin(); it != v1.rend(); it++) {
+        cout << *it << " ";
+    }
+    cout << endl;
+
+    cout << "\nVektor v2 bez reserve:\n";
+
+    vector<int> v2;
+
+    for (int i = 1; i <= 20; i++) {
+        v2.push_back(i);
+        cout << "size = " << v2.size()
+            << ", capacity = " << v2.capacity() << endl;
+    }
+
+    cout << "\nVektor v3 sa reserve(100):\n";
+
+    vector<int> v3;
+    v3.reserve(100);
+
+    for (int i = 1; i <= 20; i++) {
+        v3.push_back(i);
+        cout << "size = " << v3.size()
+            << ", capacity = " << v3.capacity() << endl;
+    }
+
+    v3.shrink_to_fit();
+
+    cout << "\nNakon shrink_to_fit():\n";
+    cout << "size = " << v3.size()
+        << ", capacity = " << v3.capacity() << endl;
+
+    return 0;
 }
