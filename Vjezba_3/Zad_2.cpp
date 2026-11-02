@@ -31,12 +31,12 @@ int main() {
 	
 	vector<double> promjena_temperature;
 	promjena_temperature.reserve(n - 1);
-	for (auto it = temperature.begin(); it != temperature.end() - 1; ++it) {
-		promjena_temperature.push_back(*(it + 1) - *it);
+	for (int i = 0; i < n - 1; ++i) {
+		promjena_temperature.push_back(temperature[i + 1] - temperature[i]);
 	}
 	
 	cout << "Promjene: ";
-	for (const auto& p : promjena_temperature) {
+	for (const double& p : promjena_temperature) {
 		cout << p << " ";
 	}
 	
@@ -49,7 +49,7 @@ int main() {
 	}
 	
 	cout << "Izvjestaj: ";
-	for (const auto& t : temperature) {
+	for (const double& t : temperature) {
 		cout << t << " ";
 	}
 	cout << endl;
