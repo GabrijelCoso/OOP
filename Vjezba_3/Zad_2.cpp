@@ -18,8 +18,6 @@ Izvjestaj: 12.5 14 13 9.5 9.5 9.5 9.5
 #include <vector>
 using namespace std;
 
-
-
 int main() {
 	int n;
 	cout << "Broj dana: ";
